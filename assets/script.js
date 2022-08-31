@@ -1,5 +1,5 @@
 //determine the variables 
-//var weather
+var weather = document.querySelector('header')
 var inputval = document.querySelector('#cityinput')
 var btn = document.querySelector('#btn');
 var city = document.querySelector('#cityoutput')

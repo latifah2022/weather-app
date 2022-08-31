@@ -1,0 +1,42 @@
+* {
+    font-family: "Libre Baherville Serif";
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #08313A;
+    background-color: #B1D8B7;
+}
+
+
+
+main {
+    background-color: rgb(164, 216, 216);
+    
+}
+
+li {
+    justify-content: center;
+    margin: 15px;
+}
+
+.weather {
+    margin: 40px;
+    background-color:#B1D8B7;
+}
+.city {
+    height: 100%;
+    margin: 10px;
+}
+
+.search-list {
+    margin: 10px;
+
+}
+
+#cityinput {
+    margin: 10px;
+}
+
