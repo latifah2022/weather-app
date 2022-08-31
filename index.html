@@ -7,7 +7,6 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="./assets/style.css"/>
@@ -16,30 +15,39 @@
 <body>
     <header>
         <h1>Weather Dashboard</h1>
+        <p id="currentDay" class="lead"></p>
     </header>
     <main>
-        <nav>
+        <nav class="city-list d-grid gap-2 d-md-block" style="width: 30%; height: 800px; background-color: rgba(0,0,255,0.1);">
+            <h2 class="search-city">Search for a city:</h2>
             <input type="text" placeholder="Los Angeles" id="cityinput"> 
-            <button placeholder="search" id="add">Search</button> 
+            <button class="btn btn-primary" type="submit">Search</button>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#" class="city-item city-item-action city-item-dark">San Diego</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
+                </li>
+            </ul>
         </nav>
 
-        <section class="display">
-            <div class="wrapper">
+        <section class="weather" class="w-100 p-3" style="background-color: rgb(130, 31, 31);">
+            <div class="wrapper" style="width: 18rem;" class="border border-primary">
                 <h2 id="cityoutput"></h2>
-                <p id="temp"></p>
-                <p id="wind"></p>
-                <p id="humidity"></p>
-                <p id="index"></p>
+                <i class="bi bi-brightness-high-fill"></i>
+                <p id="temp">Temp</p>
+                <p id="wind">Wind</p>
+                <p id="humidity">Humidity</p>
+                <p id="index">UV Index</p>
             </div>
-        </section>
-
-        <section>
-
+        
+            <div class="forecast">
+                <h2>5 Day Forecast</h2>  
+            </div>
         </section>
     </main>
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
