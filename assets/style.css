@@ -23,12 +23,10 @@ li {
 }
 
 .weather {
-    margin: 40px;
     background-color:#B1D8B7;
 }
 .city {
     height: 100%;
-    margin: 10px;
 }
 
 .search-list {
