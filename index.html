@@ -16,7 +16,7 @@
     </header>
     
     <main class="row">
-        <nav class="city col-4" style="height: 800px; background-color: #E2EDDD;">
+        <nav class="city col-4" style="height: 500px; background-color: #E2EDDD;">
             <h2 class="search-city">Search for a city:</h2>
             <input type="text" placeholder="Los Angeles" id="cityinput"> 
             <button class="btn btn-primary" type="submit">Search</button>
@@ -30,22 +30,65 @@
     
         <section class="weather col-8 px-3">
             <div class="wrapper" style="width: 18rem;" class="border border-primary">
-                <h2 id="cityoutput"></h2>
-                <i class="bi bi-brightness-high-fill"></i>
-                <p id="temp">Temp:</p>
-                <p id="wind">Wind:</p>
-                <p id="humidity">Humidity:</p>
-                <p id="index">UV Index:</p>
-            </div>
-        
-            <div class="forecast">
-                <h2>5 Day Forecast</h2>  
-                <div class="shadow p-3 mb-5 bg-white rounded ">Regular shadow</div>
-                <div class="d-flex bg-white position-relative">dddddd</div>
+              <div class="weather">_ _</div>
+              <img src="" alt="Weather Icon">
+                <!-- <h2 id="cityoutput">CITY</h2> -->
+                <!-- <i class="bi bi-brightness-high-fill"></i> -->
+                <div class="temp">
+                  <p id="tep">Temp:</p> 
+                  <span class="numb">_</span>
+                  <span class="deg">°</span>C
+                </div>
+                <div class="location">
+                  <i class='bx bx-map'></i>
+                  <span>_, _</span>
+                </div>
+                <div class="wind">
+                  <p id="windy">Wind:</p>
+                  <span class="numb-2">_</span>
+                </div>
+                <div class="feels">
+                  <p id="index">UV Index:</p>
+                  <i class='bx bxs-thermometer'></i>
+                    <div class="temp">
+                      <span class="numb-3">_</span>
+                      <span class="deg">°</span>C
+                    </div> 
+                </div>
+                <div class="humidity">
+                  <p id="humidity">Humidity:</p>
+                  <i class='bx bxs-droplet-half'></i>
+                    <span class="numb-4">_</span>
+                  </div>
+                </div>
+            </div>  
+            
+
+            <div class="container text-center">
+                <h2>5 Day Forecast</h2>
+                <div class="row cols-3 row-cols-lg-5 g-2 g-lg-3" style="height: 100px;">
+                    <div class="col">
+                      <div class="p-3 border bg-light">Row column</div>
+                    </div>
+                    <div class="col">
+                      <div class="p-3 border bg-light">Row column</div>
+                    </div>
+                    <div class="col">
+                      <div class="p-3 border bg-light">Row column</div>
+                    </div>
+                    <div class="col">
+                      <div class="p-3 border bg-light">Row column</div>
+                    </div>
+                    <div class="col">
+                      <div class="p-3 border bg-light">Row column</div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>

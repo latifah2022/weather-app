@@ -2,19 +2,28 @@
     font-family: "Libre Baherville Serif";
 }
 
+body {
+    margin: 20px;
+}
+
 header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     color: #08313A;
-    background-color: #B1D8B7;
+    background-color: #bfd7c3;
 }
 
+.row {
+    margin: 10px;
+}
 
+.col {
+    height: 100px;
+}
 
 main {
     background-color: rgb(164, 216, 216);
-    
 }
 
 li {
@@ -22,8 +31,9 @@ li {
     margin: 15px;
 }
 
+
 .weather {
-    background-color:#B1D8B7;
+    background-color: #bfd7c3;
 }
 .city {
     height: 100%;
@@ -32,6 +42,10 @@ li {
 .search-list {
     margin: 10px;
 
+}
+
+.container {
+    height: 200px;
 }
 
 #cityinput {
