@@ -5,7 +5,7 @@ var btnEl = document.querySelector('btn');
 // var wrapper= document.querySelector('wrapper')
 var city = document.querySelector('cityoutput')
 var humidity = document.querySelector('humidity')
-var temp = document.querySelector('temp')
+var temp = document.querySelector('temperature')
 var wind = document.querySelector('wind')
 var index = document.querySelector('index')
 var city;
@@ -37,17 +37,17 @@ btnEl.addEventListener('click', function(){
              //.then(data => console.log(data))
     
             .then(data => {
-                var city = data['name']
-                var humidity = data['humidity']['0']['humidity']
-                var tempature = data['main']['temp']
-                var wind = data['wind']['speed']
-                var 
+                 city = data['cityoutput']
+                 humidity = data['humidity']['0']['humidity']
+                tempature = data['main']['temp']
+                wind = data['wind']['speed']
+                index =  data['index']
     //Now with the help of innerHTML you have to make arrangements to display all the information in the webpage.
-                city.innerHTML=`Weather of <span>${nameval}<span>`
+                city.innerHTML=`Weather of <span>${cityoutput}<span>`
                 temp.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
-                description.innerHTML = `Sky Conditions: <span>${descrip}<span>`
-                wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`
-    
+                humidity.innerHTML = `Sky Conditions: <span>${humidity}<span>`
+                wind.innerHTML = `Wind Speed: <span>${wind} km/h<span>`
+                index.innerHTML = `UX index: <span>${index}<span>`
             })
     
     //Now the condition must be added that what if you do not input anything in the input box.
