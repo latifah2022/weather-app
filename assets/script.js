@@ -31,10 +31,18 @@ function convertion(val){
 var weatherApiRootUrl = 'https://api.openweathermap.org';
 var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
 
-btnEl.addEventListener('click', function(){
+
+
+//btnEl.addEventListener('click', function(){
+
     //This api link is where all the information will be collected
-    fetch('${weatherApiRootUrl}/data/2.5/onecall?lat=${lat}&lon={ion}&units=imperial&exclude=minutely,hourly$appid=${APIKEY}')
+function collectWeather(location) {
+    var {lat} = location;
+    var {lon} = location;
+    city = location.name
+    var apiUrl = (`${weatherApiRootUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly$appid=${APIKey}`)
     //('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
+    fetch(apiUrl)
         .then(res => res.json())
         //.then(data => console.log(data))
 
@@ -57,11 +65,27 @@ btnEl.addEventListener('click', function(){
     //Condition is for when user doesnt input city name.
             .catch(err => alert('You entered Wrong city name'))  
             console.log(data)
+        }; 
+
+ function weather(search) {
+    var apiUrl = `${weatherApiRootUrl}/geo/1.0/direct?q=${search}&limit=5&appid=${weatherApiRootUrl}`;
+
+    fetch(apiUrl)
+        .then(function (res) {
+            return res.json();
         })  
-
-        function weather() {
-
-        }
+        .then(function (data) {
+            if (!data[0]) {
+                alert("Location not found");
+            } else {
+                appendToHistory(search);
+                weather(data[0]);
+            }
+        }) 
+        .catch(function (err) {
+            console.error(err);
+        });  
+}
 
 
 
