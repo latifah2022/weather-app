@@ -12,7 +12,6 @@ var index = document.querySelector('.index')
 var city;
 var api;
 //var wIcon = weather.querySelector("img")
-//var arrowBack = wrapper.querySelector("header i");
 
 //var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
 //var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
@@ -106,43 +105,6 @@ btnEl.addEventListener('click', function(){
 
 // }
 
-// // function weather(info){
-// //     if(info.cod == "404"){
-// //         //inputEl.classList.replace("pending", "error");
-// //         inputEl.innerText = `${inputEl.value} isn't a valid city name`;
-// //     }else{
-// //         const city = info.name;  
-// //         //const country = info.sys.country;
-// //         const {description, id} = info.weather[0];
-// //         const {temp, feels_like, humidity} = info.main;
-// //             if(id == 800){
-// //                 wIcon.src = "icons/clear.svg";
-// //             }else if(id >= 200 && id <= 232){
-// //                 wIcon.src = "icons/storm.svg";  
-// //             }else if(id >= 600 && id <= 622){
-// //                 wIcon.src = "icons/snow.svg";
-// //             }else if(id >= 701 && id <= 781){
-// //                 wIcon.src = "icons/haze.svg";
-// //             }else if(id >= 801 && id <= 804){
-// //                 wIcon.src = "icons/cloud.svg";
-// //             }else if((id >= 500 && id <= 531) || (id >= 300 && id <= 321)){
-// //                 wIcon.src = "icons/rain.svg";
-// //             }
-            
-// //             weather.querySelector(".temp .numb").innerText = Math.floor(temp);
-// //             weather.querySelector(".weather").innerText = description;
-// //             weather.querySelector(".location span").innerText = `${city}, ${country}`;
-// //             weather.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
-// //             weather.querySelector(".humidity span").innerText = `${humidity}%`;
-// //            // infoTxt.classList.remove("pending", "error");
-// //             inputEl.innerText = "";
-// //             inputField.value = "";
-// //             wrapper.classList.add("active");
-// // }
-
-// // weather.temperature = {
-// //     unit : "celsius"
-// // }
 
 
 // function cities() {
