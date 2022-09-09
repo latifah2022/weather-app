@@ -55,6 +55,14 @@ btnEl.addEventListener('click', function(){
             .catch(err => alert('You entered Wrong city name'))  
         })  
 
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
+        .then(res => res.json())
+
+         //.then(data => console.log(data))
+
+        .then(data => {
+            console.log(data)
+        }
 
 
 
