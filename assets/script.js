@@ -1,13 +1,13 @@
 //determine the variables 
-var weatherEl = document.querySelector('header')
-var inputEl = document.querySelector('cityinput')
-var btnEl = document.querySelector('btn');
+var weatherEl = document.querySelector('#header')
+var inputEl = document.querySelector('#cityinput')
+var btnEl = document.querySelector('#btn');
 // var wrapper= document.querySelector('wrapper')
-var city = document.querySelector('cityoutput')
-var humidity = document.querySelector('humidity')
-var temp = document.querySelector('temperature')
-var wind = document.querySelector('wind')
-var index = document.querySelector('index')
+var city = document.querySelector('#cityoutput')
+var humidity = document.querySelector('#humidity')
+var temp = document.querySelector('#temperature')
+var wind = document.querySelector('#wind')
+var index = document.querySelector('#index')
 var city;
 var api;
 //var wIcon = weather.querySelector("img")
