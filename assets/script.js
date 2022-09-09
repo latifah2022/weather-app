@@ -15,7 +15,7 @@ var api;
 //var arrowBack = wrapper.querySelector("header i");
 
 var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+//var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
 function timeTracker() {
   var date = moment().format('dddd, MMM Do YYYY,  h:mm:ss, a');
@@ -29,40 +29,46 @@ function convertion(val){
 }
 
 btnEl.addEventListener('click', function(){
+    //This api link is where all the information will be collected
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
+        .then(res => res.json())
+        //.then(data => console.log(data))
 
-    //This is the api link from where all the information will be collected
-    
-            fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
-            .then(res => res.json())
-    
-             //.then(data => console.log(data))
-    
-            .then(data => {
-                 city = data['cityoutput']
-                 humidity = data['humidity']['0']['humidity']
-                tempature = data['main']['temp']
+        .then(data => {
+            console.log(data)
+             
+                city = data['cityoutput']
+                humidity = data['humidity']['0']
+                temp = data['main']['temp']
                 wind = data['wind']['speed']
                 index =  data['index']
-    //Now with the help of innerHTML you have to make arrangements to display all the information in the webpage.
-                city.innerHTML=`Weather of <span>${cityoutput}<span>`
-                temp.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
+    //Now with the help of innerHTML it displays the information on the page.
+                cityoutput.innerHTML=`Weather of <span>${cityoutput}<span>`
+                tempature.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
                 humidity.innerHTML = `Sky Conditions: <span>${humidity}<span>`
                 wind.innerHTML = `Wind Speed: <span>${wind} km/h<span>`
                 index.innerHTML = `UX index: <span>${index}<span>`
             })
     
-    //Now the condition must be added that what if you do not input anything in the input box.
+    //Condition is for when user doesnt input city name.
             .catch(err => alert('You entered Wrong city name'))  
+            console.log(data)
         })  
 
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
-        .then(res => res.json())
+        function weather() {
 
-         //.then(data => console.log(data))
-
-        .then(data => {
-            console.log(data)
         }
+
+
+
+        // fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
+        // .then(res => res.json())
+
+        //  //.then(data => console.log(data))
+
+        // .then(data => {
+        //     console.log(data)
+        // })
 
 
 
