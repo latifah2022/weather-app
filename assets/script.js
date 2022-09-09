@@ -14,7 +14,7 @@ var api;
 //var wIcon = weather.querySelector("img")
 //var arrowBack = wrapper.querySelector("header i");
 
-var APIKey = "12341234123412341234123412341234";
+var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
 function timeTracker() {
