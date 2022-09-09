@@ -1,7 +1,8 @@
 //determine the variables 
 var weatherEl = document.querySelector('.header')
 var currentDay = document.querySelector('#currentDay')
-var inputEl = document.querySelector('.cityinput')
+var form = document.querySelector("#address-form")
+var inputEl = document.querySelector('#cityinput')
 var btnEl = document.querySelector('.btn');
 // var wrapper= document.querySelector('wrapper')
 var city = document.querySelector('.cityoutput')
@@ -32,15 +33,14 @@ var weatherApiRootUrl = 'https://api.openweathermap.org';
 var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
 
 
+//This api link is where all the information will be collected
+btnEl.addEventListener('click', weather);
 
-//btnEl.addEventListener('click', function(){
-
-    //This api link is where all the information will be collected
 function collectWeather(location) {
     var {lat} = location;
     var {lon} = location;
     city = location.name
-    var apiUrl = (`${weatherApiRootUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly$appid=${APIKey}`)
+    var apiUrl = (`${weatherApiRootUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${APIKey}`)
     //('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
     fetch(apiUrl)
         .then(res => res.json())
@@ -50,7 +50,7 @@ function collectWeather(location) {
             console.log(data)
              
                 city = data['cityoutput']
-                humidity = data['humidity']['0']
+                humidity = data['humidity']
                 temp = data['main']['temp']
                 wind = data['wind']['speed']
                 index =  data['index']
@@ -62,28 +62,32 @@ function collectWeather(location) {
                 index.innerHTML = `UX index: <span>${index}<span>`
             })
     
-    //Condition is for when user doesnt input city name.
-            .catch(err => alert('You entered Wrong city name'))  
-            console.log(data)
+    // //Condition is for when user doesnt input city name.
+    //         .catch(err => alert('You entered Wrong city name'))  
+    //         console.log(data)
         }; 
 
- function weather(search) {
-    var apiUrl = `${weatherApiRootUrl}/geo/1.0/direct?q=${search}&limit=5&appid=${weatherApiRootUrl}`;
+ function weather(e) {
+    e.preventDefault()
+    var search = inputEl.value;
+    var apiUrl = `${weatherApiRootUrl}/geo/1.0/direct?q=${search}&limit=5&appid=${APIKey}`;
+    console.log(apiUrl)
 
     fetch(apiUrl)
         .then(function (res) {
             return res.json();
         })  
         .then(function (data) {
+            console.log(data)
             if (!data[0]) {
                 alert("Location not found");
             } else {
-                appendToHistory(search);
-                weather(data[0]);
+                //appendHistory(search);
+                collectWeather(data[0]);
             }
         }) 
         .catch(function (err) {
-            console.error(err);
+           // console.error(err);
         });  
 }
 
