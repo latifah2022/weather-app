@@ -14,7 +14,7 @@ var api;
 //var wIcon = weather.querySelector("img")
 //var arrowBack = wrapper.querySelector("header i");
 
-var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
+//var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
 //var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
 function timeTracker() {
@@ -28,9 +28,14 @@ function convertion(val){
     return (val - 273).toFixed(2)
 }
 
+//'${weatherApiRooturl}/data/2.5/onecall?lat=${lat}&lon={ion}&units=imperial&exclude=minutely,hourly$appid=${APIKEY}'
+var weatherApiRootUrl = 'https://api.openweathermap.org';
+var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
+
 btnEl.addEventListener('click', function(){
     //This api link is where all the information will be collected
-    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
+    fetch('${weatherApiRootUrl}/data/2.5/onecall?lat=${lat}&lon={ion}&units=imperial&exclude=minutely,hourly$appid=${APIKEY}')
+    //('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
         .then(res => res.json())
         //.then(data => console.log(data))
 
