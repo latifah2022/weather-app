@@ -5,14 +5,14 @@ var form = document.querySelector("#address-form")
 var inputEl = document.querySelector('#cityinput')
 var btnEl = document.querySelector('.btn');
 // var wrapper= document.querySelector('wrapper')
-var city = document.querySelector('.cityoutput')
-var humidity = document.querySelector('.humidity')
-var temp = document.querySelector('.temperature')
-var wind = document.querySelector('.wind')
-var index = document.querySelector('.index')
+var cityoutputEl = document.querySelector('#cityoutput')
+var humidityEl = document.querySelector('.humidity')
+var tempEl = document.querySelector('.temperature')
+var windEl = document.querySelector('.wind')
+var indexEl = document.querySelector('.index')
 var city;
 var api;
-//var wIcon = weather.querySelector("img")
+var wIconEl  = document.querySelector(".image")
 
 //var APIKey = "9b35244b1b7b8578e6c231fd7654c186";
 //var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
@@ -49,19 +49,20 @@ function collectWeather(location) {
         .then(data => {
             console.log(data)
              
-                city = data['cityoutput']
-                humidity = data['humidity']
-                temp = data['main']['temp']
-                wind = data['wind']['speed']
-                index =  data['index']
+                var city = data['name']
+                var humidity = data['humidity']
+                var temp = data['temp']
+                var wind = data['wind_speed']
+                var index =  data['uvi']
+                var wIcon = data['icon']
     //Now with the help of innerHTML it displays the information on the page.
-                cityoutput.innerHTML=`Weather of <span>${cityoutput}<span>`
-                tempature.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
-                humidity.innerHTML = `Sky Conditions: <span>${humidity}<span>`
-                wind.innerHTML = `Wind Speed: <span>${wind} km/h<span>`
-                index.innerHTML = `UX index: <span>${index}<span>`
-            })
-    
+                cityoutputEl.innerHTML = `Weather of <span> ${city}</span>`
+                tempEl.innerHTML = `Temperature: <span>${ convertion(temp)} C</span>`
+                humidityEl.innerHTML = `Humidity: <span>${humidity}<span>`
+                windEl.innerHTML = `Wind Speed: <span>${wind} km/h<span>`
+                indexEl.innerHTML = `UX index: <span>${index}}<span>`
+                wIconEl.innerHTML = ` <span>${wIcon}<span>`
+            }) 
     // //Condition is for when user doesnt input city name.
     //         .catch(err => alert('You entered Wrong city name'))  
     //         console.log(data)
@@ -76,7 +77,8 @@ function collectWeather(location) {
     fetch(apiUrl)
         .then(function (res) {
             return res.json();
-        })  
+        }) 
+//entered wrong city 
         .then(function (data) {
             console.log(data)
             if (!data[0]) {
@@ -90,21 +92,6 @@ function collectWeather(location) {
            // console.error(err);
         });  
 }
-
-
-
-        // fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputEl.value+'&appid='+APIKey)
-        // .then(res => res.json())
-
-        //  //.then(data => console.log(data))
-
-        // .then(data => {
-        //     console.log(data)
-        // })
-
-
-
-
 
 
 
@@ -129,15 +116,10 @@ function collectWeather(location) {
 //     });
 // }
 
-// function weather() {
 
-// }
+function cities() {
 
-
-
-// function cities() {
-
-// }
+}
 
 // function forecast() {
 
