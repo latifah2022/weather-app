@@ -49,7 +49,7 @@ function collectWeather(location) {
         .then(data => {
             console.log(data)
              
-                var city = data['name']
+                var city = data[0]['name']
                 var humidity = data['humidity']
                 var temp = data['temp']
                 var wind = data['wind_speed']
@@ -62,6 +62,12 @@ function collectWeather(location) {
                 windEl.innerHTML = `Wind Speed: <span>${wind} km/h<span>`
                 indexEl.innerHTML = `UX index: <span>${index}}<span>`
                 wIconEl.innerHTML = ` <span>${wIcon}<span>`
+                localStorage.setItem("name",   JSON.stringify(city));
+                localStorage.setItem("humidity", JSON.stringify(humidity));
+                localStorage.setItem("temp", JSON.stringify(temp));
+                localStorage.setItem("wind_speed", JSON.stringify(wind));
+                localStorage.setItem("uvi", JSON.stringify(index));
+                localStorage.setItem("icon", JSON.stringify(wIcon));
             }) 
     // //Condition is for when user doesnt input city name.
     //         .catch(err => alert('You entered Wrong city name'))  
@@ -118,7 +124,7 @@ function collectWeather(location) {
 
 
 function cities() {
-
+    var cities = JSON.parse(localStorage.getItem("city"));
 }
 
 // function forecast() {
